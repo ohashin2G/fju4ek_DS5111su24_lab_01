@@ -1,5 +1,8 @@
 default:
 	@cat makefile
+
+env:
+    python3 -m venv env; pip install --upgrade pip; pip install -r requirements.txt
 	
 all: get_texts raven_line_count raven_word_count raven_counts total_lines total_words
 
@@ -29,8 +32,11 @@ total_words:
 	@echo "total words in the files downloaded:"
 	wc -w pg*.txt
 
+.PHONY: clean
 clean: 
 	rm pg*
+
+
 
 
 
