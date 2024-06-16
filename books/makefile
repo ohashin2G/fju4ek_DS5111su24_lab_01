@@ -35,7 +35,7 @@ total_words:
 .PHONY: clean
 clean: 
 	rm pg*
-
+    rm -rf .ipynb_checkpoints/
 
 
 
