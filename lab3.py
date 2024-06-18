@@ -13,7 +13,7 @@ as keys, and their counts as value
 from collections import Counter
 import re
 from string import punctuation
-import wget
+
 
 sample_text = 'philosophical prose poem of "Eureka," which he deemed the crowning work'
 
