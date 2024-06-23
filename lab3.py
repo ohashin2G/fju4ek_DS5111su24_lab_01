@@ -14,7 +14,6 @@ from collections import Counter
 import re
 from string import punctuation
 
-
 sample_text = 'philosophical prose poem of "Eureka," which he deemed the crowning work'
 
 def clean_text(sample_text):
@@ -39,19 +38,26 @@ def clean_text(sample_text):
     assert not clean_text == "" , "should not be empty"
 
     return clean_text
+    print(clean_text)
+    
+clean_text(sample_text)
 
 
 def tokenize(clean_text):
     """
 	tokenize should take a string and return a python list, where each item is a word in the file.
 	Args:
-		text (str): the sample text to be tokenized
+		text (str): the clean text to be tokenized
 	Returns:
 		list: a python list, where each item is a word in the file
  	"""
     tokens = re.findall(r'\b\w+\b', clean_text)
     assert isinstance(tokenize(clean_text), list), f'Tokenizer failed on sample text: {clean_text}'
     return tokens
+    print(tokens)
+
+
+
 
 def count_words(clean_text):
     """
@@ -79,4 +85,5 @@ def count_words(clean_text):
     sum(count_words.values())
     assert isinstance(sum(count_words.values()), int)
 
-    return count_words
+    return len(clean_text.split())
+
