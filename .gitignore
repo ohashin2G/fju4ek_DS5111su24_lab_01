@@ -1,6 +1,9 @@
 # Ignore text files
 *.txt
 
+# Ignore Draft_folder
+Draft_folder/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
