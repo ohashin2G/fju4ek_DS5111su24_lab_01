@@ -1,8 +1,7 @@
 # fju4ek_DS5111su24_lab_01
 UVA DS5111 demo repository
 
-![example branch parameter]
-(https://github.com/github/docs/actions/workflows/validation.yml/badge.svg?branch=week4/testing_word_processors)
+![example workflow](https://github.com/ohashin2G/fju4ek_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=week4/testing_word_processors)
 
 
 ## Function Synopsis
