@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-
+  
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,4 +24,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          pytest -vvx tests/
+          pytest -vvx tests
