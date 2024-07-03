@@ -23,10 +23,6 @@ Write a test for each of your functions now working against the whole 'The Raven
 raven = requests.get('https://www.gutenberg.org/cache/epub/1065/pg1065.txt').text
 
 
-def text():
-	return raven
-
-
 @pytest.fixture()
 def clean_text():
     """Return cleaned text with no punctuation."""
