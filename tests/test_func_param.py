@@ -20,7 +20,7 @@ import os
 
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from raven import tokenize
+from fju4ek_DS5111su24_lab_01.src.raven import tokenize
 
 
 
