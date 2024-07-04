@@ -25,3 +25,5 @@ jobs:
       - name: Test with pytest
         run: |
           pytest -vvx tests
+          if [ -f integration_tests.py ]; then pytest -vvx integration_tests.py; fi
+
