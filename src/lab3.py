@@ -87,3 +87,5 @@ def count_words(clean_text):
 
     return len(clean_text.split())
 
+if __name__ == "__main__":
+    print(clean_text(sample_text))
