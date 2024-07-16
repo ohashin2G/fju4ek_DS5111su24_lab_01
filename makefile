@@ -34,7 +34,7 @@ total_words:
 	@echo "total words in the files downloaded:"
 	wc -w pg*.txt
 
-lint: execute_parallel_lint
+lint: execute_lint
 
 test: test_non_integration test_integration
 
@@ -46,9 +46,10 @@ test: test_non_integration test_integration
 		@echo "Running only the integration tests"
 		pytest -vvx tests --integration
 
-	execute_parallel_lint:
+	execute_lint:
 		@echo "Running linting"
-		pylint -j 2 lab3.py raven.py tokenizer.py
+		# pylint -j 4 lab3.py raven.py tokenizer.py
+		find . -path ./env -prune -o -name "*.py" -exec pylint {} +
 
 .PHONY: clean
 clean: 
