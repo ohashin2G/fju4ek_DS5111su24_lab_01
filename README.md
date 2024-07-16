@@ -3,6 +3,7 @@ UVA DS5111 demo repository
 
 ![example workflow](https://github.com/ohashin2G/fju4ek_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg?branch=week4/testing_word_processors)
 
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
 ## Function Synopsis
 
