@@ -6,11 +6,13 @@ on:
 
 jobs:
   build:
+WEEK-06/python_packages
   
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
+
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +26,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
+WEEK-06/python_packages
           pytest -vvx tests
           if [ -f integration_tests.py ]; then pytest -vvx integration_tests.py; fi
 

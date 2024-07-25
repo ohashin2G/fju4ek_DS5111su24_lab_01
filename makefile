@@ -2,14 +2,20 @@ default:
 	@cat makefile
 
 env:
+
+WEEK-06/python_packages
 	python3 -m venv env; . env/bin/activate ; pip install --upgrade pip
 
 update:
 	. env/bin/activate; pip install -r requirements.txt
 
+.PHYONY: update
+
+
 all: get_texts raven_line_count raven_word_count raven_counts total_lines total_words
 
 get_texts: get_the_books.sh
+
 	bash get_the_books.sh
 
 raven_line_count: pg17192.txt
@@ -17,6 +23,7 @@ raven_line_count: pg17192.txt
 
 raven_word_count: pg17192.txt
 	cat pg17192.txt | grep raven | wc
+
 
 raven_counts: pg17192.txt
 	@echo "count for 'raven':"
@@ -48,6 +55,7 @@ test: test_non_integration test_integration
 clean: 
 	rm pg*
 	rm -rf .ipynb_checkpoints/
+
 
 
 
