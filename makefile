@@ -2,7 +2,7 @@ default:
 	@cat makefile
 
 env:
-	python3 -m venv env; . env/bin/activate ; pip install --upgrade pip
+	python3 -m venv env; . env/bin/activate; pip install --upgrade pip
 
 update:
 	. env/bin/activate; pip install -r requirements.txt
@@ -48,8 +48,8 @@ test: test_non_integration test_integration
 
 	execute_lint:
 		@echo "Running linting"
-		# pylint -j 4 lab3.py raven.py tokenizer.py
-		find . -path ./env -prune -o -name "*.py" -exec pylint {} +
+		pylint -j 4 lab3.py raven.py tokenizer.py
+		# find . -path ./env -prune -o -name "*.py" -exec pylint {} +
 
 .PHONY: clean
 clean: 
