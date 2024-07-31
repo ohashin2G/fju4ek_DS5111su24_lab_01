@@ -24,4 +24,4 @@ jobs:
       
     - name: Run integration tests
       run: |
-        pytest -- --exclude=**/non-integration/**
+        pytest 
