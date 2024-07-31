@@ -5,50 +5,62 @@ Function: tokenize
 
 """
 
-from lab3 import clean_text, tokenize, count_words
 import sys
 import os
 import unittest
 from collections import Counter
 import re
-from string import punctuation
-
+from src.fju4ek import tokenize
+#from string import punctuation
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..')))
+
+
+
+class TestTokenize2(unittest.TestCase):
+	"""unittest: tokenizes a string of clean text into a list of words
+		Args:
+			clean_text (str): a string of clean text
+		Returns:
+			list: a list of words
+		Example:
+			>>> clean_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
+			>>> tokenize(clean_text)
+			['But', 'the', 'Raven', 'sitting', 'lonely', 'on', 'the', 'placid', 'bust', 'spoke', 'only', 'That', 'one', 'word', 'as', 'if', 'his', 'soul', 'in', 'that', 'one', 'word', 'he', 'did', 'outpour']
+		"""
+
+	def test_tokenize(self):
+        # GIVEN a string clean text
+		cleaned_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
+        # WHEN the tokenize function is called
+		tokens = re.findall(r'\b\w+\b', cleaned_text)
+        # THEN it should return a python list, where each item is a word in the file
+		assert isinstance(
+            tokens, list), f'Tokenizer failed on sample text: {cleaned_text}'
 
 
 class TestTokenize(unittest.TestCase):
     def test_tokenize(self):
         # GIVEN a string clean text
-        clean_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
+        cleaned_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
         # WHEN the tokenize function is called
-        tokens = re.findall(r'\b\w+\b', clean_text)
+        tokens = re.findall(r'\b\w+\b', cleaned_text)
         # THEN it should return a python list, where each item is a word in the file
-        assert isinstance(
-            tokens, list), f'Tokenizer failed on sample text: {clean_text}'
-
-
-class TestTokenize(unittest.TestCase):
-    def test_tokenize(tokenize):
-        # GIVEN a string clean text
-        clean_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
-        # WHEN the tokenize function is called
-        tokens = re.findall(r'\b\w+\b', clean_text)
-        # THEN it should return a python list, where each item is a word in the file
-        assert isinstance(tokenize(tokens),
-                          list), f'Tokenizer failed on sample text: {clean_text}'
+		
+        assert isinstance(tokenize(cleaned_text),
+				  list), f'Tokenizer failed on sample text: {cleaned_text}'
 
 
 class TestCountWords(unittest.TestCase):
     def test_count_words(self):
-        # GIVEN a string clean text
-        # WHEN the count_words function is called
-        clean_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
-        count_words = Counter(clean_text.split())
-        len(clean_text.split())
+		# GIVEN a string clean text
+		# WHEN the count_words function is called
+        cleaned_text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
+        count_words = Counter(cleaned_text.split())
+        len(cleaned_text.split())
 
         # THEN it should return a dictionary with the words as keys, and their counts as value
-        assert count_words,  f"Tokenizer failed on sample text: {clean_text}"
+        assert count_words,  f"Tokenizer failed on sample text: {cleaned_text}"
 
 
 if __name__ == '__main__':

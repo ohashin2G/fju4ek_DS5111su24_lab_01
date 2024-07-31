@@ -27,7 +27,7 @@ def test_integration_1(clean_text: str, tokenizer: list[:], count_words: Counter
 	text = requests.get('https://www.gutenberg.org/cache/epub/1661/pg1661.txt').text
 	clean_text = text.lower().translate(str.maketrans('', '', punctuation))
 	tokenizer = re.findall(r'\b\w+\b', clean_text)
-	counts = Counter(tokenizer.split())
+	counts: Counter[str] = Counter(tokenizer)
 
 	# Assert the expected word counts
 	expected_counts = {'sherlock': 94, 'watson': 47, 'holmes': 47}
@@ -50,6 +50,3 @@ def test_integration_2(clean_text: str, tokenizer: list[:], count_words: Counter
 
 if __name__ == "__main__":
 	pytest.main(["-v", "test_integration.py"])
- 
-
-

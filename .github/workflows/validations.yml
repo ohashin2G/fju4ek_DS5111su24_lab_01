@@ -24,6 +24,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          pytest -vvx tests
+          source env/bin/activate; pytest -vvx tests
           if [ -f integration_tests.py ]; then pytest -vvx integration_tests.py; fi
 

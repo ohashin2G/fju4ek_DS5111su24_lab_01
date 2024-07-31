@@ -4,54 +4,53 @@ default:
 env:
 	python3 -m venv env; . env/bin/activate; pip install --upgrade pip
 
-update:
+update: env
 	. env/bin/activate; pip install -r requirements.txt
 
 all: get_texts raven_line_count raven_word_count raven_counts total_lines total_words
 
 get_texts: get_the_books.sh
-	bash get_the_books.sh
+	@bash get_the_books.sh
 
 raven_line_count: pg17192.txt
-	cat pg17192.txt | grep raven | wc -l
+	@cat pg17192.txt | grep raven | wc -l
 
 raven_word_count: pg17192.txt
-	cat pg17192.txt | grep raven | wc
+	@cat pg17192.txt | grep raven | wc
 
 raven_counts: pg17192.txt
 	@echo "count for 'raven':"
-	cat pg17192.txt | grep -o "\braven\b" | wc -l
+	@cat pg17192.txt | grep -o "\braven\b" | wc -l
 	@echo "count for 'Raven':"
-	cat pg17192.txt | grep -o "\bRaven\b" | wc -l
+	@cat pg17192.txt | grep -o "\bRaven\b" | wc -l
 	@echo "count for 'raven' (case ignored):"
-	cat pg17192.txt | grep -oi "\braven\b" | wc -l 
+	@cat pg17192.txt | grep -oi "\braven\b" | wc -l 
 
 total_lines: 
 	@echo "total lines in the files downloaded:"
-	wc -l pg*.txt
+	@wc -l pg*.txt
 
 total_words:
 	@echo "total words in the files downloaded:"
-	wc -w pg*.txt
+	@wc -w pg*.txt
 
 lint: execute_lint
+	@echo "Running linting"
+	@pylint -j 4 ./src/fjuek/clean_text.py ./src/fjuek/count_words.py ./src/fjuek/tokenizer.py
+		# find . -path ./env -prune -o -name "*.py" -exec pylint {} +
 
 test: test_non_integration test_integration
 
-	test_non_integration:
-		@echo "Running only the NON integration tests"
-		pytest -vvx tests --no-integration
+test_non_integration:
+	@echo "Running only the NON integration tests"
+	@pytest -vvx tests 
 
-	test_integration:
-		@echo "Running only the integration tests"
-		pytest -vvx tests --integration
+test_integration:
+	@echo "Running only the integration tests"
+	@pytest -vvx tests 
 
-	execute_lint:
-		@echo "Running linting"
-		pylint -j 4 lab3.py raven.py tokenizer.py
-		# find . -path ./env -prune -o -name "*.py" -exec pylint {} +
 
-.PHONY: clean
+.PHONY: run clean
 clean: 
 	rm pg*
 	rm -rf .ipynb_checkpoints/
