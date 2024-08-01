@@ -19,9 +19,8 @@ jobs:
 
     - name: Install dependencies
       run: | 
-        make env
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      
+        make update 
+
     - name: Run integration tests
       run: |
-        pytest -- --exclude=**/non-integration/**
+        . env/bin/activate; pytest -- --exclude=**/non-integration/**

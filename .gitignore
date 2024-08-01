@@ -3,6 +3,7 @@
 # Ignore text files
 *.txt
 
+
 # Ignore Draft_folder
 Draft_folder/
 
