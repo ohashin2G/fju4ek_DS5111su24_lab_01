@@ -21,3 +21,6 @@ This repository contains a set of functions that perform various operations rela
 	Example usage: `count_words = count_words(['philosophical prose poem of "eureka" which he deemed the crowning work'])`
 	Output: {'philosophical': 1, 'prose': 1, 'poem': 1, 'of': 1, 'eureka': 1, 'which': 1, 'he': 1, 'deemed': 1, 'the': 1, 'crowning': 1, 'work': 1}
 
+## Installation
+pip install -i https://test.pypi.org/simple/fju4ek-DS5111su24-lab-01/fju4ek
+

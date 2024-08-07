@@ -10,10 +10,10 @@ import os
 import unittest
 from collections import Counter
 import re
-from src.fju4ek import tokenize
-#from string import punctuation
-sys.path.insert(0, os.path.abspath(
-    os.path.join(os.path.dirname(__file__), '..')))
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append('./src')
+from pkg_fju4ek import (tokenize)
 
 
 
@@ -64,7 +64,7 @@ class TestCountWords(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(exit=False)
 
 
 # Subsets of Tests

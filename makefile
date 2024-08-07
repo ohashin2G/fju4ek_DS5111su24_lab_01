@@ -7,9 +7,8 @@ env:
 update: env
 	. env/bin/activate; pip install -r requirements.txt
 
-all: get_texts raven_line_count raven_word_count raven_counts total_lines total_words
-
 get_texts: get_the_books.sh
+	@mkdire -p books
 	@bash get_the_books.sh
 
 raven_line_count: pg17192.txt
@@ -34,11 +33,13 @@ total_words:
 	@echo "total words in the files downloaded:"
 	@wc -w pg*.txt
 
-lint: execute_lint
+.PHONY: lint
+lint:
 	@echo "Running linting"
-	@pylint -j 4 ./src/fjuek/clean_text.py ./src/fjuek/count_words.py ./src/fjuek/tokenizer.py
-		# find . -path ./env -prune -o -name "*.py" -exec pylint {} +
+	pylint src/fju4ek/clean_text.py src/fju4ek/count_words.py src/fju4ek/tokenizer.py
 
+
+.PHONY: test
 test: test_non_integration test_integration
 
 test_non_integration:

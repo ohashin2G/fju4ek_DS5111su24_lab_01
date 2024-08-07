@@ -1,10 +1,68 @@
-name: Python package
+name: DS5111 su24 Python package tester
 
 on:
-  push:
   workflow_dispatch:
+    inputs:
+      uuid:
+        description: 'fju4ek'
+        required: true
+        type: string
+      github_id:
+        description: 'Ohashin2G'
+        default: ""
+        required: true
+        type: string
+      package_name:
+        description: 'pkg_fju4ek'
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
 
 jobs:
+  validate-package:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.8
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Create env, install package, test package import
+        env:
+          GHANDLE: ${{ inputs.Ohashin2G }}
+          VID: ${{ inputs.fju4ek }}
+          PACKAGE: ${{ inputs.pkg_fju4ek }}
+        run: |
+          python3 -m venv env; source env/bin/activate, pip install --upgrade pip
+          . env/bin/activate; pip install git+https://github.com/${GHANDLE}/${VID}_DS5111su24_lab_01@WEEK08/refactoring
+          . env/bin/activate; pip list
+          . env/bin/activate; python -c "import ${PACKAGE} as pkg; print(pkg.tokenize('To be or not to be'))"
+          pip install -r requirements.txt
+
+      - name: Test with pytest
+        run: |
+          pytest -vvx tests
+          if [ -f integration_tests.py ]; then pytest -vvx integration_tests.py; fi
+      - name: Build package
+        run: |
+          python setup.py sdist bdist_wheel
+      - name: Check package
+        run: |
+          twine check dist/*
+      - name: Upload package
+        run: |
+          echo ${{ secrets.PYPI_PASSWORD }} | twine upload --repository pypi dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      - name: Cleanup
+        run: |
+          rm -rf build dist *.egg-info
   build:
   
     runs-on: ubuntu-latest
