@@ -12,8 +12,8 @@ from collections import Counter
 import re
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-sys.path.append('./src')
-from pkg_fju4ek import (tokenize)
+sys.path.append('./src/pkg_fju4ek')
+from src.pkg_fju4ek.tokenizer import tokenize
 
 
 
