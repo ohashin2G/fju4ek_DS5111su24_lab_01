@@ -1,4 +1,4 @@
 pylint==3.2.2
 pytest==8.2.2
 #python == >3.10  # ERROR: Could not find a version that satisfies the requirement python (from versions: none)
-pip install -i https://test.pypi.org/simple/fju4ek-DS5111su24-lab-01
+#pip install -i https://test.pypi.org/simple/fju4ek-DS5111su24-lab-01
