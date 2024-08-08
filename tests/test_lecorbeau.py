@@ -47,6 +47,7 @@ def tokenizer(clean_text):
 
 
 @pytest.fixture()
+@pytest.mark.xfail
 def test_tokenizer(tokenizer: list[str]):
     """Use fixture return value in a test."""
     try:

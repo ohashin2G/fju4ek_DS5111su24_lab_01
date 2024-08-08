@@ -44,11 +44,11 @@ test: test_non_integration test_integration
 
 test_non_integration:
 	@echo "Running only the NON integration tests"
-	@pytest -vvx tests 
+	@pytest -vv tests --ignore=tests/integration
 
 test_integration:
 	@echo "Running only the integration tests"
-	@pytest -vvx tests 
+	@pytest -vv tests -m 
 
 
 .PHONY: run clean

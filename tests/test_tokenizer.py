@@ -13,7 +13,7 @@ import re
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append('./src/pkg_fju4ek')
-from src.pkg_fju4ek.tokenizer import tokenize
+from src.fju4ek.tokenizer import tokenize
 
 
 
