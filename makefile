@@ -7,9 +7,9 @@ env:
 update: env
 	. env/bin/activate; pip install -r requirements.txt
 
-get_texts: get_the_books.sh
-	@mkdire -p books
-	@bash get_the_books.sh
+get_texts:
+	get_texts:
+		@bash get_the_books.sh
 
 raven_line_count: pg17192.txt
 	@cat pg17192.txt | grep raven | wc -l
