@@ -38,7 +38,7 @@ total_words: get_texts
 
 .PHONY: lint
 lint:
-	@echo "Running linting"
+	@echo "Running linter"
 	pylint src/fju4ek/clean_text.py src/fju4ek/count_words.py src/fju4ek/tokenizer.py
 
 
