@@ -34,7 +34,7 @@ jobs:
 
       - name: lint
         run: |
-          make lint == 3.2.2
+          make lint
 
       - name: Run non-integration tests
         
