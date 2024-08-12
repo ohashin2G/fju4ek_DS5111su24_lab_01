@@ -42,7 +42,7 @@ que je fis à peine davantage que marmotter «D'autres amis déjà ont
 pris leur vol--demain il me laissera comme mes Espérances déjà ont
 pris leur vol.» Alors l'oiseau dit: «Jamais plus.»_""")
 
-@pytest.mark.skip(reason="French text will be replaced with Japanese text when it's ready")
+@pytest.mark.skip(reason="French text will be replaced with Japanese text when it's ready")    # skip decorator applied to the test function
 def test_count_words(self):
     """
     Test case for the count_words function.
