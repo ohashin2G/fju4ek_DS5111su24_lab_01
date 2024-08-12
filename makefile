@@ -53,7 +53,7 @@ test_non_integration:
 
 test_integration:
 	@echo "Running only the integration tests"
-	@pytest -vv tests -m 
+	@pytest -vv tests -m integration
 
 
 .PHONY: run clean
