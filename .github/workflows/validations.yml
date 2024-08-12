@@ -34,12 +34,12 @@ jobs:
 
       - name: lint
         run: |
-          make lint
+          make lint == 3.2.2
 
       - name: Run non-integration tests
         
         run: |
-          make test_non_integration
+          make test
           
       - name: Run integration tests
         run: |
