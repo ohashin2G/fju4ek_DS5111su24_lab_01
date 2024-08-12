@@ -9,7 +9,7 @@ SAMPLE_TEXT = 'philosophical prose poem of eureka which he deemed the crowning w
 
 def clean_text(sample_text):
     """
-    clean_text, should take a string, and should return all lowercase words, 
+    clean_text, should take a string, and should return all lowercase words,
     and throw out any punctuation
 
     Args:
